@@ -1,0 +1,49 @@
+
+<!-- saved from url=(0120)file:///C:/Users/COCO/Desktop/111/%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>我的学习全流程记录</title>
+<style>
+html,body{height:100%;}
+body{background-color:#f5f5f5;margin:0;}
+#box{text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.slide{display:none;width:900px;max-width:95%;border-radius:8px;}
+.slide.active{display:block;}
+#counter{color:#888;font-size:15px;}
+button{font-size:16px;padding:8px 20px;margin:0 6px;cursor:pointer;}
+</style>
+</head>
+<body>
+<div id="box">
+<img class="slide active" src="./我的学习全流程记录_files/1.png" alt="第1步">
+<img class="slide" src="./我的学习全流程记录_files/2.png" alt="第2步">
+<img class="slide" src="./我的学习全流程记录_files/3.png" alt="第3步">
+<img class="slide" src="./我的学习全流程记录_files/4.png" alt="第4步">
+<img class="slide" src="./我的学习全流程记录_files/5.png" alt="第5步">
+<img class="slide" src="./我的学习全流程记录_files/6.png" alt="第6步">
+<img class="slide" src="./我的学习全流程记录_files/7.png" alt="第7步">
+<video class="slide" src="8.mp4" controls="" width="900"></video>
+<video class="slide" src="9.mp4" controls="" width="900"></video>
+<p id="counter"></p>
+<button onclick="prev()">上一张</button>
+<button onclick="next()">下一张</button>
+</div>
+<script>
+let i=0;
+const slides=document.querySelectorAll('.slide');
+const counter=document.getElementById('counter');
+function show(n){
+slides[i].classList.remove('active');
+if(slides[i].tagName==='VIDEO')slides[i].pause();
+i=(n+slides.length)%slides.length;
+slides[i].classList.add('active');
+if(slides[i].tagName==='VIDEO')slides[i].play();
+counter.textContent=(i+1)+' / '+slides.length;
+}
+function next(){show(i+1);}
+function prev(){show(i-1);}
+counter.textContent='1 / '+slides.length;
+</script>
+
+
+</body></html>
